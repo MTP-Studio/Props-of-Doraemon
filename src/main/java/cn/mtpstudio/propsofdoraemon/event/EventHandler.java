@@ -6,10 +6,10 @@ import cn.mtpstudio.propsofdoraemon.item.ItemBambooCopter;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.potion.Effect;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -34,6 +34,13 @@ public class EventHandler {
         }
         player.sendPlayerAbilities();
     }
+
+//    @SubscribeEvent
+//    public static void onPlayerChangeGameMode(PlayerEvent.PlayerChangeGameModeEvent e) {
+//        if (!(e.getCurrentGameMode().isCreative() && e.getNewGameMode().isSurvivalOrAdventure() && e.getPlayer().inventory.armorInventory.get(3).getItem() instanceof ItemBambooCopter))
+//            return;
+//        PlayerEntity player = e.getPlayer();
+//    }
 
     @SubscribeEvent
     public static void onPotionAdded(PotionEvent.PotionAddedEvent e) {
