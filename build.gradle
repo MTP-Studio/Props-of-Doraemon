@@ -138,7 +138,6 @@ jar {
                 "MixinConfigs"            : "mixins.propsofdoraemon.json"
         ])
     }
-    rename 'mixin.refmap.json', 'propsofdoraemon.mixin-refmap.json'
 }
 
 jar.finalizedBy('reobfJar')

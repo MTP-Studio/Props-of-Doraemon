@@ -4,6 +4,5 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "PlayerInteractionManagerMixin"
-  ],
-  "refmap": "propsofdoraemon.mixin-refmap.json"
+  ]
 }

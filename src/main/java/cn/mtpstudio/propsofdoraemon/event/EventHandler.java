@@ -60,7 +60,7 @@ public class EventHandler {
                 } catch (InterruptedException err) {
                     err.printStackTrace();
                 }
-                for (int i = 1; i < 11; i++) {
+                for (int i = 0; i < 10; i++) {
                     ZombieEntity zombieChan = new ZombieEntity(world);
                     zombieChan.setPosition(x.get(i), y.get(i), z.get(i));
                     world.addEntity(zombieChan);

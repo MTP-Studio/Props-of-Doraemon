@@ -13,7 +13,8 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void onItemRegistry(RegistryEvent.Register<Item> event) {
         event.getRegistry().register(Items.BAMBOO_COPTER);
-        event.getRegistry().register(Items.TEAPOT);
+        event.getRegistry().register(Items.FILLED_TEAPOT);
+        event.getRegistry().register(Items.EMPTY_TEAPOT);
     }
 
     @SubscribeEvent
