@@ -18,6 +18,7 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void onItemRegistry(RegistryEvent.Register<Item> event){
         event.getRegistry().register(Items.BAMBOO_COPTER);
+        event.getRegistry().register(Items.TEAPOT);
     }
     @SubscribeEvent
     public static void onEffectRegistry(RegistryEvent.Register<Effect> event){

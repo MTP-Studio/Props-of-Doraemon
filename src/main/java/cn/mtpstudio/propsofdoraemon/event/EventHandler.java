@@ -1,13 +1,18 @@
 package cn.mtpstudio.propsofdoraemon.event;
 
 import cn.mtpstudio.propsofdoraemon.effect.Effects;
+import cn.mtpstudio.propsofdoraemon.item.ItemBambooCopter;
 import cn.mtpstudio.propsofdoraemon.item.Items;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.world.World;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -17,6 +22,7 @@ import java.util.List;
 @Mod.EventBusSubscriber
 public class EventHandler {
 
+
     @SubscribeEvent
     public static void onLivingUpdate(TickEvent.PlayerTickEvent event){
         PlayerEntity player = event.player;
@@ -24,17 +30,9 @@ public class EventHandler {
         for (EffectInstance effectInstance:player.getActivePotionEffects()){
             effectList.add(effectInstance.getPotion());
         }
-        //玩家盔甲栏的头盔是否为竹蜻蜓
-        if (player.inventory.armorInventory.get(3).getItem() == Items.BAMBOO_COPTER){
-            player.abilities.allowFlying = true;
-        }else {
-            player.abilities.allowFlying = false;
-            player.abilities.isFlying = false;
-        }
-        //玩家是否有adventure buff在身
         if (effectList.contains(Effects.EFFECT_ADVENTURE)){
+            player.removeActivePotionEffect(Effects.EFFECT_ADVENTURE);
             Thread thread = new Thread(() -> {
-                player.removeActivePotionEffect(Effects.EFFECT_ADVENTURE);
                 World world = player.getEntityWorld();
                 List<Double> x = new ArrayList<>(),y = new ArrayList<>(),z = new ArrayList<>();
                 for (int i = 0;i < 10;i++){
@@ -43,7 +41,7 @@ public class EventHandler {
                     z.add(player.getPosZRandom(10));
                 }
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(10000L);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
