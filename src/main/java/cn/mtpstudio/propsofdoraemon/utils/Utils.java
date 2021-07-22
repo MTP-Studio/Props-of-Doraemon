@@ -8,6 +8,8 @@ public class Utils {
     public static double getTopY(double x, double y, double z, World worldIn) {
         BlockPos blockPosOne = new BlockPos(x, y, z);
         BlockPos blockPosTwo = new BlockPos(x, y - 1.0, z);
+        if (!worldIn.chunkExists(blockPosOne.getX() >> 4, blockPosOne.getZ() >> 4))
+            return y;
         if (!(worldIn.getBlockState(blockPosOne).getBlock() == Blocks.AIR)) {
             return getTopY(x, (int) y + 1, z, worldIn);
         } else if (worldIn.getBlockState(blockPosTwo).getBlock() == Blocks.AIR) {
