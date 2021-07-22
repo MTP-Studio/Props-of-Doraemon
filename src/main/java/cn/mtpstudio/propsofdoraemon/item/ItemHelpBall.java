@@ -1,6 +1,7 @@
 package cn.mtpstudio.propsofdoraemon.item;
 
 import cn.mtpstudio.propsofdoraemon.PropsOfDoraemon;
+import cn.mtpstudio.propsofdoraemon.utils.Utils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
@@ -26,18 +26,13 @@ public class ItemHelpBall extends Item {
     @Nonnull
     public ItemStack onItemUseFinish(@Nonnull ItemStack stack, World worldIn, @Nonnull LivingEntity entityLiving) {
         if (!worldIn.isRemote) {
-            for (int i = 0; i < 16; ++i) {
-                double x = entityLiving.getPosX() + (entityLiving.getRNG().nextDouble() - 0.5D) * 50.0D;
-                double y = MathHelper.clamp(entityLiving.getPosY() + (double) (entityLiving.getRNG().nextInt(16) - 8), 0.0D, worldIn.func_234938_ad_() - 1);
-                double z = entityLiving.getPosZ() + (entityLiving.getRNG().nextDouble() - 0.5D) * 50.0D;
-                if (entityLiving.isPassenger()) {
-                    entityLiving.stopRiding();
-                }
-                if (entityLiving.attemptTeleport(x, y, z, true)) {
-                    entityLiving.teleportKeepLoaded(x, y, z);
-                    break;
-                }
+            double x = entityLiving.getPosXRandom(50);
+            double z = entityLiving.getPosZRandom(50);
+            double y = Utils.getTopY(x, entityLiving.getPosY(), z, entityLiving.world);
+            if (entityLiving.isPassenger()) {
+                entityLiving.stopRiding();
             }
+            entityLiving.teleportKeepLoaded(x, y, z);
             entityLiving.addPotionEffect(new EffectInstance(Effects.REGENERATION, 300, 3));
         }
         if (entityLiving instanceof ServerPlayerEntity) {
