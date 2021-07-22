@@ -6,12 +6,11 @@ import cn.mtpstudio.propsofdoraemon.item.ItemBambooCopter;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.PotionEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fluids.capability.ItemFluidContainer;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class EventHandler {
                 }
             }
             player.sendPlayerAbilities();
-            
+
         }
     }
 
@@ -43,17 +42,25 @@ public class EventHandler {
             PlayerEntity player = (PlayerEntity) e.getEntityLiving();
             Thread thread = new Thread(() -> {
                 player.removePotionEffect(Effects.EFFECT_ADVENTURE);
-                World world = player.getEntityWorld();
-                List<Double> x = new ArrayList<>(), y = new ArrayList<>(), z = new ArrayList<>();
-                for (int i = 0; i < 10; i++) {
-                    x.add(player.getPosXRandom(10));
-                    y.add(player.getPosYRandom());
-                    z.add(player.getPosZRandom(10));
-                }
                 try {
                     Thread.sleep(10000L);
                 } catch (InterruptedException err) {
                     err.printStackTrace();
+                }
+                World world = player.getEntityWorld();
+                List<Double> x = new ArrayList<>(), y = new ArrayList<>(), z = new ArrayList<>();
+                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 16; j++) {
+                        double randomX = player.getPosX() + (player.getRNG().nextDouble() - 0.5D) * 10.0D;
+                        double randomY = MathHelper.clamp(player.getPosY() + (double) (player.getRNG().nextInt(16) - 8), 0.0D, world.func_234938_ad_() - 1);
+                        double randomZ = player.getPosZ() + (player.getRNG().nextDouble() - 0.5D) * 10.0D;
+                        if (player.attemptTeleport(randomX, randomY, randomZ, true)) {
+                            x.add(randomX);
+                            y.add(randomY);
+                            z.add(randomZ);
+                            break;
+                        }
+                    }
                 }
                 for (int i = 0; i < 10; i++) {
                     ZombieEntity zombieChan = new ZombieEntity(world);
