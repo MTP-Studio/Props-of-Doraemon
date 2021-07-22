@@ -18,11 +18,11 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 
-public class ItemFilledTeapot extends Item {
+public class ItemAdventureTea extends Item {
 
-    public ItemFilledTeapot() {
+    public ItemAdventureTea() {
         super(new Properties().maxStackSize(1));
-        this.setRegistryName(PropsOfDoraemon.MODID, "filled_teapot");
+        this.setRegistryName(PropsOfDoraemon.MODID, "adventure_tea");
     }
 
     @Override

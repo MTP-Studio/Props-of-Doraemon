@@ -5,6 +5,7 @@ import cn.mtpstudio.propsofdoraemon.model.BambooCopterModel;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -18,6 +19,7 @@ import javax.annotation.Nullable;
 public class ItemBambooCopter extends ArmorItem {
 
     public ResourceLocation textures = new ResourceLocation(PropsOfDoraemon.MODID, "textures/models/armor/bamboo_copter.png");
+    public ResourceLocation flying_textures = new ResourceLocation(PropsOfDoraemon.MODID, "textures/models/armor/bamboo_copter_flying.png");
 
     public ItemBambooCopter() {
         super(ArmorMaterial.LEATHER, EquipmentSlotType.HEAD, new Properties());
@@ -35,8 +37,7 @@ public class ItemBambooCopter extends ArmorItem {
     @Override
     @Nullable
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-        return this.textures.toString();
+        if (!(entity instanceof PlayerEntity && ((PlayerEntity) entity).abilities.isFlying)) return textures.toString();
+        return flying_textures.toString();
     }
-
-
 }

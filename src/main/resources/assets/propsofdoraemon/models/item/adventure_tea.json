@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "propsofdoraemon:item/filled_teapot"
+    "layer0": "propsofdoraemon:item/adventure_tea"
   }
 }
