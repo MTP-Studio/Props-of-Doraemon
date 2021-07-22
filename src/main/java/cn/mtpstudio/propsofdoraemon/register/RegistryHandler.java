@@ -12,9 +12,9 @@ import net.minecraftforge.fml.common.Mod;
 public class RegistryHandler {
     @SubscribeEvent
     public static void onItemRegistry(RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(Items.BAMBOO_COPTER);
-        event.getRegistry().register(Items.ADVENTURE_TEA);
-        event.getRegistry().register(Items.EMPTY_TEAPOT);
+        for (Item item : Items.MOD_ITEMS){
+            event.getRegistry().register(item);
+        }
     }
 
     @SubscribeEvent

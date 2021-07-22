@@ -11,6 +11,7 @@ import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.PotionEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fluids.capability.ItemFluidContainer;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class EventHandler {
                 }
             }
             player.sendPlayerAbilities();
+            
         }
     }
 
@@ -61,5 +63,10 @@ public class EventHandler {
             });
             thread.start();
         }
+    }
+    @SubscribeEvent
+    public static void onGameModeChange(PlayerEvent.PlayerChangeGameModeEvent event){
+        PlayerEntity player = event.getPlayer();
+        //if (event.getCurrentGameMode())
     }
 }
