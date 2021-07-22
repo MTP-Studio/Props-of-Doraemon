@@ -25,6 +25,7 @@ public class PlayerInteractionManagerMixin {
      * @author ShootKing
      * @reason 修复从创造模式切换到生存时竹蜻蜓失效
      */
+
     @Overwrite
     public void func_241820_a(GameType newGameType, GameType oldGameType) {
         this.field_241813_e_ = oldGameType;

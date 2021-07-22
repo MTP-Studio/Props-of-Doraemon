@@ -16,15 +16,35 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 
+/**
+ * 竹蜻蜓
+ * @author Frank__Wang ShootKing
+ */
+
 public class ItemBambooCopter extends ArmorItem {
 
+    /** 添加竹蜻蜓材质 */
     public ResourceLocation textures = new ResourceLocation(PropsOfDoraemon.MODID, "textures/models/armor/bamboo_copter.png");
+    /** 添加飞行的竹蜻蜓材质 */
     public ResourceLocation flying_textures = new ResourceLocation(PropsOfDoraemon.MODID, "textures/models/armor/bamboo_copter_flying.png");
+
+    /**
+     * 注册竹蜻蜓物品
+     * 可以戴在头上
+     */
 
     public ItemBambooCopter() {
         super(ArmorMaterial.LEATHER, EquipmentSlotType.HEAD, new Properties());
         this.setRegistryName(PropsOfDoraemon.MODID, "bamboo_copter");
     }
+
+    /**
+     * 竹蜻蜓模型
+     * @param entityLiving 实体
+     * @param itemStack 物品栏
+     * @param armorSlot 装备栏
+     * @return 竹蜻蜓模型
+     */
 
     @SuppressWarnings("unchecked")
     @Override
@@ -34,10 +54,19 @@ public class ItemBambooCopter extends ArmorItem {
         return (T) new BambooCopterModel();
     }
 
+    /**
+     * 飞行竹蜻蜓模型
+     * @param stack 物品栏
+     * @param slot 装备栏槽位
+     * @return 竹蜻蜓贴图
+     */
+
     @Override
     @Nullable
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-        if (!(entity instanceof PlayerEntity && ((PlayerEntity) entity).abilities.isFlying)) return textures.toString();
+        if (!(entity instanceof PlayerEntity && ((PlayerEntity) entity).abilities.isFlying)) {
+            return textures.toString();
+        }
         return flying_textures.toString();
     }
 }

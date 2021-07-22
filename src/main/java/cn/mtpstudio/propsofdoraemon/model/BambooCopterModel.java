@@ -1,11 +1,13 @@
-// Made with Blockbench 3.8.4
-// Exported for Minecraft version 1.15 - 1.16
-// Paste this class into your mod and generate all required imports
 package cn.mtpstudio.propsofdoraemon.model;
 
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;
+
+/**
+ * 使用BlockBench导出的竹蜻蜓模型
+ * @author XLJplus ShootKing
+ */
 
 public class BambooCopterModel extends BipedModel<LivingEntity> {
 
