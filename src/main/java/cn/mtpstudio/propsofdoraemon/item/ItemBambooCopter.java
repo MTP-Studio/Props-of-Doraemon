@@ -32,6 +32,4 @@ public class ItemBambooCopter extends ArmorItem {
         return this.textures.toString();
     }
 
-
-
 }
