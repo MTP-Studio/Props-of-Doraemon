@@ -64,9 +64,4 @@ public class EventHandler {
             thread.start();
         }
     }
-    @SubscribeEvent
-    public static void onGameModeChange(PlayerEvent.PlayerChangeGameModeEvent event){
-        PlayerEntity player = event.getPlayer();
-        //if (event.getCurrentGameMode())
-    }
 }
