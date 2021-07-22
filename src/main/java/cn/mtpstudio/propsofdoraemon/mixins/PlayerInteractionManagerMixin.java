@@ -31,8 +31,11 @@ public class PlayerInteractionManagerMixin {
         this.field_241813_e_ = oldGameType;
         this.gameType = newGameType;
         if (!(newGameType.isSurvivalOrAdventure() && oldGameType.isCreative() && this.player.inventory.armorInventory.get(3).getItem() instanceof ItemBambooCopter))
+            // 若玩家头部未穿戴竹蜻蜓或穿戴竹蜻蜓但是由生存/冒险切换到冒险/生存模式则按照原版逻辑处理abilities
+        {
             newGameType.configurePlayerCapabilities(this.player.abilities);
-        else {
+        } else {
+            // 否则在处理时将影响飞行的两个abilities排除在外
             this.player.abilities.isCreativeMode = false;
             this.player.abilities.disableDamage = false;
             this.player.abilities.allowEdit = !newGameType.hasLimitedInteractions();
