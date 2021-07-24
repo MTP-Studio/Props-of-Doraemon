@@ -22,5 +22,6 @@ public class RegistryHandler {
     public static void onEffectRegistry(RegistryEvent.Register<Effect> event) {
         // 注册冒险茶的药水效果
         event.getRegistry().register(Effects.EFFECT_ADVENTURE);
+        event.getRegistry().register(Effects.EFFECT_FLUTTERING);
     }
 }

@@ -8,4 +8,5 @@ package cn.mtpstudio.propsofdoraemon.effect;
 public class Effects {
     /** 注册冒险茶效果 */
     public static final EffectAdventure EFFECT_ADVENTURE = new EffectAdventure();
+    public static final EffectFluttering EFFECT_FLUTTERING = new EffectFluttering();
 }

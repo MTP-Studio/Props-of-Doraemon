@@ -15,6 +15,7 @@ public class Items {
     public static final ItemEmptyTeapot EMPTY_TEAPOT = new ItemEmptyTeapot();
     public static final ItemAdventureTea ADVENTURE_TEA = new ItemAdventureTea();
     public static final ItemHelpBall HELP_BALL = new ItemHelpBall();
+    public static final ItemFlutteringMedicine FLUTTERING_MEDICINE = new ItemFlutteringMedicine();
     static {
         // 添加mod物品竹蜻蜓
         MOD_ITEMS.add(BAMBOO_COPTER);
@@ -24,5 +25,6 @@ public class Items {
         MOD_ITEMS.add(ADVENTURE_TEA);
         // 添加mod物品救命丸子
         MOD_ITEMS.add(HELP_BALL);
+        MOD_ITEMS.add(FLUTTERING_MEDICINE);
     }
 }

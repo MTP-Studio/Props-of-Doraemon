@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        mavne { url = 'http://lss233.littleservice.cn/repositories/minecraft' }
+        //maven { url = 'http://lss233.littleservice.cn/repositories/minecraft' }
         maven { url = 'https://files.minecraftforge.net/maven' }
         maven { url = 'https://repo.spongepowered.org/maven' }
         mavenCentral()

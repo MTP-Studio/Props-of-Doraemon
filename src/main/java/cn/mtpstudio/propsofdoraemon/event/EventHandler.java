@@ -1,12 +1,14 @@
 package cn.mtpstudio.propsofdoraemon.event;
 
 import cn.mtpstudio.propsofdoraemon.effect.EffectAdventure;
+import cn.mtpstudio.propsofdoraemon.effect.EffectFluttering;
 import cn.mtpstudio.propsofdoraemon.effect.Effects;
 import cn.mtpstudio.propsofdoraemon.item.ItemBambooCopter;
 import cn.mtpstudio.propsofdoraemon.utils.Utils;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.PotionEvent;
@@ -88,6 +90,11 @@ public class EventHandler {
                 }
             });
             thread.start();
+        }
+        if ((e.getEntityLiving() instanceof PlayerEntity && e.getPotionEffect().getPotion() instanceof EffectFluttering)) {
+            e.getEntityLiving().addPotionEffect(new EffectInstance(net.minecraft.potion.Effects.JUMP_BOOST,e.getPotionEffect().getDuration(),5));
+            e.getEntityLiving().addPotionEffect(new EffectInstance(net.minecraft.potion.Effects.SLOW_FALLING,e.getPotionEffect().getDuration()*5,3));
+            e.getEntityLiving().addPotionEffect(new EffectInstance(net.minecraft.potion.Effects.LEVITATION,e.getPotionEffect().getDuration(),1));
         }
     }
 }
