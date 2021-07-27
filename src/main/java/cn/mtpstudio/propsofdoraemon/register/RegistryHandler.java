@@ -63,7 +63,7 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void onEntityRegistation(RegistryEvent.Register<EntityType<?>> event) {
         doraa=EntityType.Builder.create((EntityType<Doraemon> entityType, World world) -> {
-            return new Doraemon(entityType, world);
+            return new Doraemon(entityType,world);
         }, EntityClassification.MISC).size(1f,1.8f).build("doraemon");
         doraa.setRegistryName("doraemon");
         event.getRegistry().register(doraa);

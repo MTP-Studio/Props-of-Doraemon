@@ -49,8 +49,9 @@ public class BlockThinkingDesk extends Block {
                 String[] cat = {"banboo_copter", "empty_teapot", "adventure_tea", "fluttering_medicine", "help_ball"};
                 Random random = new Random();
                 ItemStack stack = new ItemStack(cn.mtpstudio.propsofdoraemon.item.Items.IDEA, 1);
-                stack.getOrCreateTag().putString("itemType", cat[random.nextInt() % 5]);
-                player.setHeldItem(Hand.MAIN_HAND, stack);
+                stack.getOrCreateTag().putString("itemType", cat[Math.abs(random.nextInt() % 5)]);
+                player.inventory.addItemStackToInventory(stack);
+                player.getHeldItem(Hand.MAIN_HAND).setCount(player.getHeldItem(Hand.MAIN_HAND).getCount()-1);
             } else if (player.getHeldItem(Hand.MAIN_HAND).getItem().equals(cn.mtpstudio.propsofdoraemon.item.Items.IDEA)) {
                 if (tile.prob == 0) {
                     worldIn.setBlockState(pos, net.minecraft.block.Blocks.AIR.getDefaultState());
@@ -66,9 +67,9 @@ public class BlockThinkingDesk extends Block {
                 player.sendMessage(new StringTextComponent("能量剩" + tile.prob), UUID.randomUUID());
                 return ActionResultType.SUCCESS;
             } else {
-                return ActionResultType.PASS;
+                return ActionResultType.SUCCESS;
             }
         }
-        return ActionResultType.PASS;
+        return ActionResultType.SUCCESS;
     }
 }

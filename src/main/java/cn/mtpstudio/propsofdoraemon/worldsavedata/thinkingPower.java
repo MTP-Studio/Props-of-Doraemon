@@ -42,7 +42,7 @@ public class thinkingPower extends WorldSavedData {
             nbt.add(nbt1);
         }
         compound.put("list",nbt);
-        return null;
+        return compound;
     }
     public int getPlayerTP(String uuid){
         return thinkingPowers.getOrDefault(uuid,500);

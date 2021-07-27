@@ -1,6 +1,7 @@
 package cn.mtpstudio.propsofdoraemon.entity;
 
 import cn.mtpstudio.propsofdoraemon.item.Items;
+import cn.mtpstudio.propsofdoraemon.register.RegistryHandler;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
@@ -18,7 +19,7 @@ import org.lwjgl.system.CallbackI;
 import javax.annotation.Nullable;
 
 public class Doraemon extends AnimalEntity {
-    public Doraemon(EntityType<? extends AnimalEntity> type, World worldIn) {
+    public Doraemon(EntityType<Doraemon> type, World worldIn) {
         super(type, worldIn);
         this.setCustomName(new StringTextComponent("哆啦a梦"));
         this.goalSelector.addGoal(0,new AvoidEntityGoal<PlayerEntity>(this,PlayerEntity.class,5,1,2));

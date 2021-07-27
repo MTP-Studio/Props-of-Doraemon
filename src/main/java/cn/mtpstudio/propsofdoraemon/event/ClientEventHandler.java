@@ -25,11 +25,22 @@ public class ClientEventHandler {
         if (Minecraft.getInstance().player == null) {
             return;
         }
+        System.out.println("Rendeed");
         Hud hud=new Hud();
         hud.render();
     }
     @SubscribeEvent
     public static void onClientSetUpEvent(FMLClientSetupEvent event) {
+        System.out.println("SetupModeled");
+        System.out.println("SetupModeled");
+        System.out.println("SetupModeled");
+        System.out.println("SetupModeled");
+        System.out.println("SetupModeled");
+        System.out.println("SetupModeled");
+        System.out.println("SetupModeled");
+        System.out.println("SetupModeled");
+        System.out.println("SetupModeled");
+        System.out.println("SetupModeled");
         RenderingRegistry.registerEntityRenderingHandler(RegistryHandler.doraa, Render::new);
     }
 }
