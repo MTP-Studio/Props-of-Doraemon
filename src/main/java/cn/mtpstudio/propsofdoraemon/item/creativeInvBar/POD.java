@@ -1,5 +1,6 @@
 package cn.mtpstudio.propsofdoraemon.item.creativeInvBar;
 
+import cn.mtpstudio.propsofdoraemon.item.Items;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
@@ -10,6 +11,6 @@ public class POD extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return null;
+        return new ItemStack(Items.Item_TD,1);
     }
 }

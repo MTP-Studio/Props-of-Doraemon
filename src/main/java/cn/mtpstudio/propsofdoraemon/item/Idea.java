@@ -21,11 +21,12 @@ import java.util.List;
 public class Idea extends Item {
     public Idea() {
         super(new Properties().group(RegistryHandler.itemBar).maxStackSize(1));
+        setRegistryName("idea");
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new StringTextComponent("咒术："+stack.getTag().getString("itemType")));
+        tooltip.add(new StringTextComponent("咒术："+stack.getOrCreateTag().getString("itemType")));
     }
     @SubscribeEvent
     public static void onChat(ServerChatEvent event){
