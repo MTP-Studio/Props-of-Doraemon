@@ -2,6 +2,7 @@ package cn.mtpstudio.propsofdoraemon.item;
 
 import cn.mtpstudio.propsofdoraemon.PropsOfDoraemon;
 import cn.mtpstudio.propsofdoraemon.effect.Effects;
+import cn.mtpstudio.propsofdoraemon.register.RegistryHandler;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -31,7 +32,7 @@ public class ItemAdventureTea extends Item {
      */
 
     public ItemAdventureTea() {
-        super(new Properties().maxStackSize(1));
+        super(new Properties().maxStackSize(1).group(RegistryHandler.itemBar));
         this.setRegistryName(PropsOfDoraemon.MODID, "adventure_tea");
     }
 

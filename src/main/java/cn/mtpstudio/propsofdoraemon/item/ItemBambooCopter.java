@@ -2,6 +2,7 @@ package cn.mtpstudio.propsofdoraemon.item;
 
 import cn.mtpstudio.propsofdoraemon.PropsOfDoraemon;
 import cn.mtpstudio.propsofdoraemon.model.BambooCopterModel;
+import cn.mtpstudio.propsofdoraemon.register.RegistryHandler;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -34,7 +35,7 @@ public class ItemBambooCopter extends ArmorItem {
      */
 
     public ItemBambooCopter() {
-        super(ArmorMaterial.LEATHER, EquipmentSlotType.HEAD, new Properties());
+        super(ArmorMaterial.LEATHER, EquipmentSlotType.HEAD, new Properties().group(RegistryHandler.itemBar));
         this.setRegistryName(PropsOfDoraemon.MODID, "bamboo_copter");
     }
 

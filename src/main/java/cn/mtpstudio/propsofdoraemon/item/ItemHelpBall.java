@@ -1,6 +1,7 @@
 package cn.mtpstudio.propsofdoraemon.item;
 
 import cn.mtpstudio.propsofdoraemon.PropsOfDoraemon;
+import cn.mtpstudio.propsofdoraemon.register.RegistryHandler;
 import cn.mtpstudio.propsofdoraemon.utils.Utils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
@@ -30,7 +31,7 @@ public class ItemHelpBall extends Item {
      */
 
     public ItemHelpBall() {
-        super(new Properties().food(new Food.Builder().fastToEat().setAlwaysEdible().hunger(0).build()).maxStackSize(16));
+        super(new Properties().group(RegistryHandler.itemBar).food(new Food.Builder().fastToEat().setAlwaysEdible().hunger(0).build()).maxStackSize(16));
         this.setRegistryName(PropsOfDoraemon.MODID, "help_ball");
     }
 

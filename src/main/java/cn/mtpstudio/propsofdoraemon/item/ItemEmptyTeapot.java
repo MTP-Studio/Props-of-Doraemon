@@ -1,6 +1,7 @@
 package cn.mtpstudio.propsofdoraemon.item;
 
 import cn.mtpstudio.propsofdoraemon.PropsOfDoraemon;
+import cn.mtpstudio.propsofdoraemon.register.RegistryHandler;
 import net.minecraft.item.Item;
 
 /**
@@ -15,7 +16,7 @@ public class ItemEmptyTeapot extends Item {
      */
 
     public ItemEmptyTeapot() {
-        super(new Properties());
+        super(new Properties().group(RegistryHandler.itemBar));
         this.setRegistryName(PropsOfDoraemon.MODID, "empty_teapot");
     }
 }

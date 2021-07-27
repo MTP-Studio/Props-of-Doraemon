@@ -35,6 +35,7 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void onBlockRegistry(RegistryEvent.Register<Block> event){
         event.getRegistry().register(Blocks.DORAEMON_FIGURE);
+        event.getRegistry().register(Blocks.ZINKIN_DSK);
     }
 
     public static BlockItem withRegistryName(BlockItem block){

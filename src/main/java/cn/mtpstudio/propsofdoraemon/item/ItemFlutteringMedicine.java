@@ -2,6 +2,7 @@ package cn.mtpstudio.propsofdoraemon.item;
 
 import cn.mtpstudio.propsofdoraemon.PropsOfDoraemon;
 import cn.mtpstudio.propsofdoraemon.effect.Effects;
+import cn.mtpstudio.propsofdoraemon.register.RegistryHandler;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,7 +23,7 @@ import java.util.Properties;
 
 public class ItemFlutteringMedicine extends Item{
     public ItemFlutteringMedicine() {
-        super(new Properties().maxStackSize(1));
+        super(new Properties().group(RegistryHandler.itemBar).maxStackSize(1));
         this.setRegistryName(PropsOfDoraemon.MODID, "fluttering_medicine");
     }
     @Override
