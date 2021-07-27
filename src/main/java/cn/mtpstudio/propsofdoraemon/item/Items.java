@@ -1,9 +1,12 @@
 package cn.mtpstudio.propsofdoraemon.item;
 
+import cn.mtpstudio.propsofdoraemon.block.Blocks;
+import cn.mtpstudio.propsofdoraemon.register.RegistryHandler;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;
-
+//copr. (c) 2021 Mtp studio
 /**
  * 注册物品
  * @author Frank__Wang ShootKing
@@ -16,6 +19,7 @@ public class Items {
     public static final ItemAdventureTea ADVENTURE_TEA = new ItemAdventureTea();
     public static final ItemHelpBall HELP_BALL = new ItemHelpBall();
     public static final ItemFlutteringMedicine FLUTTERING_MEDICINE = new ItemFlutteringMedicine();
+    public static final BlockItem Item_BlockDF=new BlockItem(Blocks.DORAEMON_FIGURE,new Item.Properties().group(RegistryHandler.itemBar).maxStackSize(1));
     static {
         // 添加mod物品竹蜻蜓
         MOD_ITEMS.add(BAMBOO_COPTER);

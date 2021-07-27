@@ -3,16 +3,19 @@ package cn.mtpstudio.propsofdoraemon.register;
 import cn.mtpstudio.propsofdoraemon.block.Blocks;
 import cn.mtpstudio.propsofdoraemon.effect.Effects;
 import cn.mtpstudio.propsofdoraemon.item.Items;
+import cn.mtpstudio.propsofdoraemon.item.creativeInvBar.POD;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Effect;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryHandler {
+    public static final POD itemBar=new POD();
     @SubscribeEvent
     public static void onItemRegistry(RegistryEvent.Register<Item> event) {
         // 注册物品
@@ -36,5 +39,8 @@ public class RegistryHandler {
 
     public static BlockItem withRegistryName(BlockItem block){
         return  (BlockItem) block.setRegistryName(block.getBlock().getRegistryName());
+    }
+    @SubscribeEvent
+    public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> ter) {
     }
 }
